@@ -25,7 +25,7 @@ public class Post {
     @Column(name = "publication_date")
     private LocalDate publicationDate;
 
-    @ManyToMany(mappedBy = "posts",cascade = {DETACH,REFRESH,MERGE})
+    @ManyToMany(mappedBy = "posts",cascade = {DETACH,REFRESH,MERGE,PERSIST})
     private List<InstagramAccount> instagramAccounts = new ArrayList<>();
 
     public Post(String image, String description, LocalDate publicationDate) {
