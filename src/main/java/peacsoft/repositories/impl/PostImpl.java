@@ -77,7 +77,9 @@ public class PostImpl implements PostRepositories {
         try {
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
-            entityManager.createQuery("delete from Post p where p.id = :id").setParameter("id",postId).executeUpdate();
+//            entityManager.createQuery("delete from Post p where p.id = :id").setParameter("id",postId).executeUpdate();
+            Post post = entityManager.find(Post.class, postId);
+            entityManager.remove(post);
             entityManager.getTransaction().commit();
             entityManager.close();
             return "Post is deleted.";

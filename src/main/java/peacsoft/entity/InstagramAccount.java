@@ -23,7 +23,7 @@ public class InstagramAccount {
     private String userName;
     private String login;
     private String password;
-    @OneToOne(cascade = {DETACH,REFRESH,REMOVE,MERGE,PERSIST})
+    @OneToOne(cascade = {DETACH,REFRESH,MERGE,PERSIST})
     @JoinColumn(name = "user_id")
     private User user;
 
